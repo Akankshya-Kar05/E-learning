@@ -1,89 +1,263 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduLearn - Home</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Home</title>
+
+<style>
+/* ---------- RESET ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #ffffff; color: #333; }
+button { cursor: pointer; }
+img { max-width: 100%; display: block; }
+
+/* ---------- HEADER ---------- */
+header {
+  width: 100%;
+  padding: 20px 0;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #2563eb;
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.font-bold { font-weight: bold; }
+.rounded-xl { border-radius: 1rem; }
+.rounded-lg { border-radius: 0.75rem; }
+.rounded-full { border-radius: 9999px; }
+.shadow-lg { box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+.shadow-xl { box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+
+/* Gradient backgrounds */
+.bg-hero { background: linear-gradient(135deg, #ebf4ff, #f3e8ff, #ffe4f1); }
+.gradient-blue-purple { background: linear-gradient(90deg, #2563eb, #7c3aed); }
+.gradient-card { background: linear-gradient(135deg, #eff6ff, #f3e8ff); }
+
+/* Sections */
+section { padding: 80px 0; }
+.container { max-width: 1200px; margin: auto; padding: 0 20px; }
+
+/* Hero */
+.hero-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); align-items: center; gap: 40px; }
+.hero-title { font-size: 52px; line-height: 1.2; }
+.hero-btn { padding: 14px 32px; border-radius: 10px; font-weight: bold; transition: 0.3s; }
+.hero-btn.primary { background: linear-gradient(90deg, #2563eb, #7c3aed); color: #fff; }
+.hero-btn.primary:hover { opacity: 0.85; }
+.hero-btn.secondary { background: #fff; border: 2px solid #ccc; }
+.hero-btn.secondary:hover { border-color: #2563eb; color: #2563eb; }
+
+/* Stats */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; text-align: center; }
+.stat-number { font-size: 40px; font-weight: bold; background: linear-gradient(90deg, #2563eb, #7c3aed); -webkit-background-clip: text; color: transparent; }
+
+/* Popular Courses */
+.courses-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px; }
+.course-card { border-radius: 1rem; overflow: hidden; background: #fff; transition: 0.3s; }
+.course-card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+.course-top { height: 200px; position: relative; background: linear-gradient(135deg, #60a5fa, #a78bfa); display: flex; justify-content: center; align-items: center; }
+.course-price { position: absolute; top: 15px; right: 15px; background: #fff; padding: 6px 12px; border-radius: 20px; font-weight: bold; color: #2563eb; }
+.course-tag { background: #dbeafe; padding: 4px 12px; font-size: 12px; border-radius: 20px; color: #2563eb; }
+
+/* Features */
+.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 30px; }
+.feature-card { padding: 30px; background: linear-gradient(135deg, #eff6ff, #f3e8ff); border-radius: 1rem; }
+
+/* Choose Box */
+.choose-box { background: linear-gradient(135deg, #2563eb, #7c3aed); padding: 50px; border-radius: 20px; color: #fff; }
+.choose-items { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px,1fr)); gap: 20px; }
+
+/* Testimonials */
+.testimonial-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+.testimonial-card { padding: 30px; background: #fff; border-radius: 1rem; box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 50px;
+}
+
+footer p {
+  font-size: 14px;
+}
+</style>
 </head>
 <body>
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo">EduLearn</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="about.html">About Us</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-container">
+    <div class="logo">EduTech</div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html">About Us</a></li>
+        <li><a href="/dashboard.html">Dashboard</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO SECTION -->
+<section class="bg-hero">
+  <div class="container hero-grid">
+    <div>
+      <h1 class="hero-title font-bold">Transform Your Future with <span style="background:linear-gradient(90deg,#2563eb,#7c3aed);-webkit-background-clip:text;color:transparent;">Quality Education</span></h1>
+      <p style="margin:20px 0; font-size:18px; color:#555;">Join thousands of learners worldwide and gain the skills you need to succeed in today's digital world.</p>
+      <div style="display:flex; gap:15px; flex-wrap:wrap;">
+        <button class="hero-btn primary">Explore Courses</button>
+        <button class="hero-btn secondary">Watch Demo</button>
+      </div>
+    </div>
+    <div>
+      <img src="https://images.pexels.com/photos/5212317/pexels-photo-5212317.jpeg?auto=compress&cs=tinysrgb&w=800" class="rounded-xl shadow-xl" />
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section>
+  <div class="container stats-grid">
+    <div><p class="stat-number">50,000+</p><p>Active Students</p></div>
+    <div><p class="stat-number">500+</p><p>Quality Courses</p></div>
+    <div><p class="stat-number">100+</p><p>Expert Instructors</p></div>
+    <div><p class="stat-number">98%</p><p>Success Rate</p></div>
+  </div>
+</section>
+
+<!-- POPULAR COURSES -->
+<section style="background:#f9fafb;">
+  <div class="container">
+    <h2 class="text-center font-bold" style="font-size:38px; margin-bottom:10px;">Popular Courses</h2>
+    <p class="text-center" style="margin-bottom:40px; color:#555;">Discover our most popular courses and start learning today</p>
+
+    <div class="courses-grid">
+      <div class="course-card">
+        <div class="course-top">
+          <div class="course-price">$49</div>
         </div>
-    </header>
-
-    <main>
-        <section class="hero-section">
-            <div class="container text-center">
-                <h1>Learn Anytime, Anywhere.</h1>
-                <p>Unlock your potential with our expert-led online courses.</p>
-                <a href="#" class="btn-primary">Explore Courses</a>
-            </div>
-        </section>
-
-        <section class="courses-section section-padding">
-            <div class="container">
-                <h2 class="text-center">Our Popular Courses</h2>
-                <div class="course-grid">
-                    </div>
-                <div class="text-center mt-4">
-                    <a href="#" class="btn-secondary">View All Courses</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="features-section section-padding bg-light">
-            <div class="container">
-                <h2 class="text-center">Why Choose Us?</h2>
-                <div class="features-grid">
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/60/007bff/ffffff?text=Expert" alt="Expert Instructors Icon"> <h3>Expert Instructors</h3>
-                        <p>Learn from industry leaders and experienced professionals.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/60/28a745/ffffff?text=Flex" alt="Flexible Learning Icon"> <h3>Flexible Learning</h3>
-                        <p>Access courses on your schedule, at your own pace.</p>
-                    </div>
-                    <div class="feature-item">
-                        <img src="https://via.placeholder.com/60/ffc107/333333?text=Comm" alt="Community Support Icon"> <h3>Community Support</h3>
-                        <p>Connect with a global network of learners and mentors.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta-section section-padding text-center">
-            <div class="container">
-                <h2>Ready to Start Your Learning Journey?</h2>
-                <p>Join EduLearn today and transform your future.</p>
-                <a href="#" class="btn-primary">Sign Up Now</a>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 EduLearn. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><img src="https://via.placeholder.com/24/3b5998/ffffff?text=FB" alt="Facebook icon"></a> <a href="#" aria-label="Twitter"><img src="https://via.placeholder.com/24/1DA1F2/ffffff?text=TW" alt="Twitter icon"></a> <a href="#" aria-label="LinkedIn"><img src="https://via.placeholder.com/24/0077B5/ffffff?text=LI" alt="LinkedIn icon"></a> </div>
+        <div style="padding:20px;">
+          <span class="course-tag">Development</span>
+          <h3 style="font-size:22px; margin:10px 0;">Full Stack Bootcamp</h3>
+          <p style="color:#666; font-size:14px;">Master MERN stack from scratch.</p>
         </div>
-    </footer>
+      </div>
 
-    <script src="script.js"></script>
+      <div class="course-card"><div class="course-top"><div class="course-price">$59</div></div><div style="padding:20px;"><span class="course-tag">Design</span><h3>UI/UX Essentials</h3><p>Learn modern UI/UX skills.</p></div></div>
+      <div class="course-card"><div class="course-top"><div class="course-price">$39</div></div><div style="padding:20px;"><span class="course-tag">AI</span><h3>Machine Learning</h3><p>Hands-on ML projects.</p></div></div>
+      <div class="course-card"><div class="course-top"><div class="course-price">$29</div></div><div style="padding:20px;"><span class="course-tag">Marketing</span><h3>Digital Marketing</h3><p>Grow your brand online.</p></div></div>
+      <div class="course-card"><div class="course-top"><div class="course-price">$19</div></div><div style="padding:20px;"><span class="course-tag">Business</span><h3>Startup Guide</h3><p>Build your own business.</p></div></div>
+      <div class="course-card"><div class="course-top"><div class="course-price">$99</div></div><div style="padding:20px;"><span class="course-tag">Cloud</span><h3>AWS Training</h3><p>AWS certification prep.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section>
+  <div class="container">
+    <h2 class="text-center font-bold" style="font-size:38px; margin-bottom:40px;">Why Choose EduLearn?</h2>
+
+    <div class="features-grid">
+      <div class="feature-card"><h3 class="font-bold">Expert Instructors</h3><p>Learn from industry professionals.</p></div>
+      <div class="feature-card"><h3 class="font-bold">Flexible Learning</h3><p>Study at your own pace.</p></div>
+      <div class="feature-card"><h3 class="font-bold">Certified Courses</h3><p>Earn recognized certificates.</p></div>
+      <div class="feature-card"><h3 class="font-bold">Global Community</h3><p>Connect with learners worldwide.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US ADVANCED -->
+<section>
+  <div class="container choose-box">
+    <h3 class="font-bold" style="font-size:28px; margin-bottom:20px;">What Makes Us Different</h3>
+    <div class="choose-items">
+      <p>✔ Industry-recognized certifications</p>
+      <p>✔ Lifetime access to materials</p>
+      <p>✔ 24/7 student support</p>
+      <p>✔ Hands-on projects</p>
+      <p>✔ Regular updates</p>
+      <p>✔ Money-back guarantee</p>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section style="background:#f9fafb;">
+  <div class="container">
+    <h2 class="text-center font-bold" style="font-size:38px; margin-bottom:20px;">What Our Students Say</h2>
+    <p class="text-center" style="color:#555; margin-bottom:40px;">Real stories from real students</p>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p style="margin-bottom:20px;">Amazing platform! I landed a job in 3 months.</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg" class="rounded-full" width="60"/>
+          <p>Sarah Johnson - Web Developer</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p style="margin-bottom:20px;">Great support and practical exercises.</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg" class="rounded-full" width="60"/>
+          <p>Michael Chen - Data Scientist</p>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p style="margin-bottom:20px;">Flexible timings helped me learn while working.</p>
+        <div style="display:flex;align-items:center;gap:10px;">
+          <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" class="rounded-full" width="60"/>
+          <p>Emily - UX Designer</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 EduTech. All Rights Reserved.</p>
+</footer>
+
 </body>
 </html>

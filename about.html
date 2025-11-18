@@ -1,98 +1,301 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EduLearn - About Us</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About | EduTech</title>
+
+<style>
+/* ---------- RESET ---------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; background: #ffffff; color: #111827; }
+button { cursor: pointer; }
+img { max-width: 100%; display: block; }
+.container { max-width: 1200px; margin: auto; padding: 20px; }
+
+/* ---------- HEADER (Same as Home) ---------- */
+header {
+  width: 100%;
+  padding: 20px 0;
+  background: #ffffff;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 26px;
+  font-weight: bold;
+  color: #2563eb;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: #333;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #2563eb;
+}
+
+/* Hero */
+.about-hero {
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #eff6ff, #faf5ff, #ffe4f0);
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-size: 48px;
+  font-weight: 800;
+  margin-bottom: 20px;
+}
+
+.gradient-text {
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.about-hero p {
+  max-width: 700px;
+  margin: auto;
+  font-size: 18px;
+  color: #4b5563;
+}
+
+/* STORY SECTION */
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 40px;
+}
+
+.story-section { padding: 80px 20px; }
+.story-text h2 { font-size: 32px; font-weight: 700; margin-bottom: 15px; }
+.story-text p { margin-bottom: 15px; color: #4b5563; line-height: 1.6; }
+
+.story-image-wrapper { position: relative; }
+.story-img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.story-badge {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  padding: 20px;
+  border-radius: 16px;
+  color: white;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.badge-number { font-size: 28px; font-weight: 800; }
+.badge-label { font-size: 14px; opacity: 0.9; }
+
+/* MISSION & VISION */
+.mission-vision { padding: 80px 20px; }
+
+.mv-card {
+  padding: 30px;
+  border-radius: 20px;
+  color: white;
+}
+
+.mv-blue { background: linear-gradient(to right, #2563eb, #1d4ed8); }
+.mv-purple { background: linear-gradient(to right, #7c3aed, #6d28d9); }
+
+.mv-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.mv-card h2 { margin: 0; font-size: 26px; font-weight: 700; }
+.mv-card p { font-size: 16px; opacity: 0.9; line-height: 1.6; }
+
+/* VALUES */
+.values-section {
+  padding: 80px 20px;
+  background: #f9fafb;
+}
+
+.values-section h2 {
+  font-size: 32px;
+  margin-bottom: 10px;
+}
+
+.subtitle { color: #6b7280; margin-bottom: 40px; }
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 25px;
+}
+
+.value-card {
+  background: white;
+  padding: 25px;
+  border-radius: 16px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.value-card h3 {
+  margin: 10px 0;
+  font-size: 20px;
+}
+
+.value-card p {
+  color: #4b5563;
+  line-height: 1.6;
+}
+
+/* TEAM */
+.team-section {
+  padding: 80px 20px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 30px;
+}
+
+.team-card {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.team-card img {
+  width: 100%;
+  border-radius: 16px;
+  margin-bottom: 15px;
+}
+.about-us-link {
+  color: #ff6600; /* Change to any color you want */
+  font-weight: bold; /* Optional */
+}
+
+.team-card h3 { margin-bottom: 5px; font-size: 20px; }
+.role { color: #6b7280; margin-bottom: 8px; }
+.bio { color: #4b5563; font-size: 14px; line-height: 1.5; }
+
+/* CTA */
+.cta-section {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.cta-btn {
+  padding: 15px 35px;
+  background: linear-gradient(to right, #2563eb, #7c3aed);
+  border: none;
+  color: white;
+  font-size: 18px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.cta-btn:hover { opacity: 0.85; }
+
+/* ---------- FOOTER (Same as Home) ---------- */
+footer {
+  background: #111827;
+  color: #e5e7eb;
+  padding: 40px 0;
+  text-align: center;
+  margin-top: 50px;
+}
+
+footer p {
+  font-size: 14px;
+}
+</style>
 </head>
+
 <body>
-    <header class="main-header">
-        <div class="container">
-            <a href="index.html" class="logo">EduLearn</a>
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html" class="active">About Us</a></li>
-                    <li><a href="dashboard.html">Dashboard</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="nav-toggle" id="navToggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
+
+<!-- HEADER -->
+<header>
+  <div class="nav-container">
+    <div class="logo">EduTech</div>
+    <nav>
+      <ul>
+        <li><a href="/index.html">Home</a></li>
+        <li><a href="/about.html" class="about-us-link">About Us</a></li>
+        <li><a href="/dashboard.html">Dashboard</a></li>
+        <li><a href="/contact.html">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ABOUT PAGE CONTENT -->
+<div class="about-page">
+
+  <!-- HERO -->
+  <section class="about-hero">
+    <div class="container text-center">
+      <h1>About <span class="gradient-text">EduLearn</span></h1>
+      <p>Empowering learners worldwide to achieve their dreams through accessible, high-quality online education.</p>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story-section">
+    <div class="container grid-2">
+
+      <div class="story-text">
+        <h2>Our Story</h2>
+        <p>Founded in 2018, EduLearn started with a mission to make quality education accessible for all. Today, we serve 50,000+ learners worldwide.</p>
+        <p>Our platform blends research-backed teaching with modern technology for an unmatched learning experience.</p>
+        <p>We now offer 500+ courses taught by top educators and industry experts.</p>
+      </div>
+
+      <div class="story-image-wrapper">
+        <img class="story-img" src="https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg" />
+        <div class="story-badge">
+          <p class="badge-number">7+</p>
+          <p class="badge-label">Years of Excellence</p>
         </div>
-    </header>
+      </div>
 
-    <main>
-        <section class="hero-section inner-hero">
-            <div class="container text-center">
-                <h1>About EduLearn</h1>
-                <p>Empowering minds through accessible and high-quality online education.</p>
-            </div>
-        </section>
+    </div>
+  </section>
 
-        <section class="about-content section-padding">
-            <div class="container">
-                <div class="about-grid">
-                    <div class="about-text">
-                        <h2>Our Mission</h2>
-                        <p>At EduLearn, our mission is to break down barriers to education by providing a diverse range of courses taught by industry experts. We believe that learning should be a lifelong journey, accessible to everyone, everywhere. Our platform is designed to offer flexible, engaging, and practical learning experiences that equip individuals with the skills needed to thrive in a rapidly evolving world.</p>
+</div>
 
-                        <h2>Our Vision</h2>
-                        <p>To be the leading global online learning platform, fostering a community of curious minds and empowering individuals to achieve their full potential through continuous skill development and knowledge acquisition.</p>
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 EduTech. All Rights Reserved.</p>
+</footer>
 
-                        <h2>Our Values</h2>
-                        <ul>
-                            <li><strong>Accessibility:</strong> Education for all, regardless of background or location.</li>
-                            <li><strong>Quality:</strong> High-standard courses taught by passionate and experienced instructors.</li>
-                            <li><strong>Innovation:</strong> Continuously improving our platform and content to meet future learning needs.</li>
-                            <li><strong>Community:</strong> Building a supportive environment where learners connect and grow together.</li>
-                            <li><strong>Impact:</strong> Enabling real-world skill application and career advancement for our students.</li>
-                        </ul>
-                    </div>
-                    <div class="about-image">
-                        <img src="https://via.placeholder.com/500x350/F8F9FA/333333?text=Our+Team" alt="A team learning together"> </div>
-                </div>
-
-                <div class="team-section">
-                    <h2>Meet Our Team</h2>
-                    <div class="team-grid">
-                        <div class="team-member">
-                            <img src="https://via.placeholder.com/150/007bff/ffffff?text=John+Doe" alt="John Doe profile picture"> <h3>John Doe</h3>
-                            <p>CEO & Founder</p>
-                            <p class="small-text">Visionary leader passionate about educational technology.</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="https://via.placeholder.com/150/28a745/ffffff?text=Jane+Smith" alt="Jane Smith profile picture"> <h3>Jane Smith</h3>
-                            <p>Head of Curriculum</p>
-                            <p class="small-text">Expert in course design and engaging learning experiences.</p>
-                        </div>
-                        <div class="team-member">
-                            <img src="https://via.placeholder.com/150/ffc107/333333?text=Mike+Brown" alt="Mike Brown profile picture"> <h3>Mike Brown</h3>
-                            <p>Lead Developer</p>
-                            <p class="small-text">Crafting seamless and interactive learning tools.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="main-footer">
-        <div class="container">
-            <p>&copy; 2025 EduLearn. All rights reserved.</p>
-            <div class="social-links">
-                <a href="#" aria-label="Facebook"><img src="https://via.placeholder.com/24/3b5998/ffffff?text=FB" alt="Facebook icon"></a>
-                <a href="#" aria-label="Twitter"><img src="https://via.placeholder.com/24/1DA1F2/ffffff?text=TW" alt="Twitter icon"></a>
-                <a href="#" aria-label="LinkedIn"><img src="https://via.placeholder.com/24/0077B5/ffffff?text=LI" alt="LinkedIn icon"></a>
-            </div>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
