@@ -19,40 +19,55 @@
       padding: 0 20px;
     }
 
-    /* HEADER */
-    .header {
+    /* ---------- UNIFIED HEADER (Same as Dashboard/About) ----------- */
+    header {
       width: 100%;
       padding: 20px 0;
       background: #ffffff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       box-shadow: 0 2px 10px rgba(0,0,0,0.05);
       position: sticky;
       top: 0;
-      z-index: 100;
+      z-index: 1000;
     }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
     .logo {
       font-size: 26px;
       font-weight: bold;
       color: #2563eb;
     }
-    .nav-links a {
-      margin-left: 20px;
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 30px;
+    }
+
+    nav ul li a {
       text-decoration: none;
+      font-size: 16px;
       color: #333;
-      font-weight: 500;
       transition: 0.3s;
     }
-    .nav-links a:hover {
+
+    nav ul li a:hover {
       color: #2563eb;
     }
-    .nav-links a.active {
-      color: #7c3aed;
+
+    nav .contact-active {
+      color: #2563eb !important;
       font-weight: bold;
     }
 
-    /* HERO SECTION */
+    /* HERO */
     .hero {
       background: linear-gradient(to bottom right, #eff6ff, #f3e8ff, #ffe0f0);
       padding: 80px 20px;
@@ -74,7 +89,7 @@
       color: gray;
     }
 
-    /* CONTACT INFO CARDS */
+    /* CONTACT INFO */
     .info-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -103,19 +118,21 @@
       font-size: 24px;
     }
 
-    /* FORM + RIGHT SIDE */
+    /* FORM SECTION */
     .main-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
       gap: 40px;
       margin-top: 60px;
     }
+
     .contact-form label {
       font-size: 14px;
       font-weight: bold;
       margin-bottom: 6px;
       display: block;
     }
+
     .contact-form input,
     .contact-form select,
     .contact-form textarea {
@@ -128,6 +145,7 @@
       outline: none;
       transition: 0.2s;
     }
+
     .submit-btn {
       width: 100%;
       padding: 14px;
@@ -141,207 +159,137 @@
       transition: 0.3s;
     }
 
-    /* FOOTER */
-    .footer {
-      background: #0f172a;
-      color: #cbd5e1;
-      padding: 50px 20px;
-      margin-top: 80px;
+    /* ---------- UNIFIED FOOTER (Same as Dashboard/About) ----------- */
+    footer {
+      background: #111827;
+      color: #e5e7eb;
+      padding: 40px 20px;
+      margin-top: 60px;
     }
+
     .footer-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 40px;
+      max-width: 1200px;
+      margin: auto;
     }
-    .footer h3 {
-      margin-bottom: 15px;
-      font-size: 18px;
+
+    footer h3 {
+      margin-bottom: 10px;
       color: #fff;
+      font-size: 18px;
     }
-    .footer a {
+
+    footer a {
       display: block;
       text-decoration: none;
       color: #cbd5e1;
       margin-bottom: 8px;
       transition: 0.3s;
     }
-    .footer a:hover {
+
+    footer a:hover {
       color: #7c3aed;
     }
+
     .footer-bottom {
-      margin-top: 40px;
+      margin-top: 30px;
       text-align: center;
       font-size: 14px;
       color: #94a3b8;
     }
   </style>
 </head>
+
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center;">
-      <div class="logo">EduLearn</div>
+<!-- HEADER (Unified) -->
+<header>
+  <div class="nav-container">
+    <div class="logo">EduLearn</div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="courses.html">Courses</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="contact-active">Contact Us</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-      <nav class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="courses.html">Courses</a>
-        <a href="about.html">About</a>
-        <a href="contact.html" class="active">Contact</a>
-      </nav>
-    </div>
-  </header>
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>Get in <span class="gradient-text">Touch</span></h1>
+    <p>Have questions? We'd love to hear from you. Send us a message anytime.</p>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="container">
-      <h1>Get in <span class="gradient-text">Touch</span></h1>
-      <p>Have questions? We'd love to hear from you. Send us a message anytime.</p>
-    </div>
-  </section>
+<!-- INFO -->
+<section class="container" style="padding: 60px 20px;">
+  <div class="info-grid">
+    <div class="info-card"><div class="info-icon">@</div><h3>Email Us</h3><p>info@edulearn.com</p></div>
+    <div class="info-card"><div class="info-icon">☎</div><h3>Call Us</h3><p>+1 (555) 123-4567</p></div>
+    <div class="info-card"><div class="info-icon">📍</div><h3>Visit Us</h3><p>123 Education Street</p></div>
+    <div class="info-card"><div class="info-icon">⏳</div><h3>Business Hours</h3><p>Mon–Fri, 9AM–6PM</p></div>
+  </div>
+</section>
 
-  <!-- CONTACT INFO -->
-  <section class="container" style="padding: 60px 20px;">
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="info-icon">@</div>
-        <h3>Email Us</h3>
-        <p>info@edulearn.com</p>
-        <p style="font-size:12px;">support@edulearn.com</p>
-      </div>
+<!-- FORM + SIDEBAR -->
+<section class="container" style="padding-bottom: 60px;">
+  <div class="main-grid">
+    
+    <!-- FORM -->
+    <div>
+      <h2 style="font-size:32px; margin-bottom:15px;">Send Us a Message</h2>
 
-      <div class="info-card">
-        <div class="info-icon">☎</div>
-        <h3>Call Us</h3>
-        <p>+1 (555) 123-4567</p>
-        <p style="font-size:12px;">Mon–Fri, 9AM–6PM EST</p>
-      </div>
+      <form class="contact-form">
+        <label>Full Name</label>
+        <input type="text" placeholder="John Doe" />
 
-      <div class="info-card">
-        <div class="info-icon">📍</div>
-        <h3>Visit Us</h3>
-        <p>123 Education Street</p>
-        <p style="font-size:12px;">Learning City, LC 12345</p>
-      </div>
+        <label>Email Address</label>
+        <input type="email" placeholder="john@example.com" />
 
-      <div class="info-card">
-        <div class="info-icon">⏳</div>
-        <h3>Business Hours</h3>
-        <p>Monday – Friday</p>
-        <p style="font-size:12px;">9AM – 6PM EST</p>
-      </div>
-    </div>
-  </section>
+        <label>Subject</label>
+        <select>
+          <option>Select a subject</option>
+          <option>General Inquiry</option>
+          <option>Course Information</option>
+          <option>Technical Support</option>
+          <option>Billing Question</option>
+        </select>
 
-  <!-- FORM + SIDEBAR -->
-  <section class="container" style="padding-bottom: 60px;">
-    <div class="main-grid">
-      
-      <!-- FORM -->
-      <div>
-        <h2 style="font-size:32px; margin-bottom:15px;">Send Us a Message</h2>
-        <p style="color:gray; margin-bottom:30px;">Fill out the form below and we will contact you soon.</p>
+        <label>Message</label>
+        <textarea rows="5" placeholder="Write your message..."></textarea>
 
-        <form class="contact-form">
-          <label>Full Name</label>
-          <input type="text" placeholder="John Doe" />
-
-          <label>Email Address</label>
-          <input type="email" placeholder="john@example.com" />
-
-          <label>Subject</label>
-          <select>
-            <option>Select a subject</option>
-            <option>General Inquiry</option>
-            <option>Course Information</option>
-            <option>Technical Support</option>
-            <option>Billing Question</option>
-            <option>Partnership Opportunity</option>
-          </select>
-
-          <label>Message</label>
-          <textarea rows="5" placeholder="Write your message..."></textarea>
-
-          <button class="submit-btn">Send Message</button>
-        </form>
-      </div>
-
-      <!-- RIGHT SIDE -->
-      <div>
-        <div class="support-card" style="background:linear-gradient(to bottom right,#2563eb,#7c3aed); color:white; padding:30px; border-radius:20px;">
-          <h3 style="font-size:24px; margin-bottom:10px;">Need Quick Help?</h3>
-          <p style="margin-bottom:20px;">Our support team is here 24/7 for you.</p>
-          <button style="padding:10px 20px; border:none; border-radius:8px; background:white; color:#2563eb; font-weight:bold; cursor:pointer;">Live Chat</button>
-        </div>
-
-        <div class="faq-card">
-          <h3 style="margin-bottom:20px;">Frequently Asked Questions</h3>
-
-          <div class="faq-item">
-            <h4>How do I enroll in a course?</h4>
-            <p>Browse our course catalog and click Enroll Now.</p>
-          </div>
-
-          <div class="faq-item">
-            <h4>Can I get a refund?</h4>
-            <p>Yes! We offer a 30-day money-back guarantee.</p>
-          </div>
-
-          <div class="faq-item">
-            <h4>Do I get a certificate?</h4>
-            <p>Absolutely! Every course includes a certificate.</p>
-          </div>
-
-          <div class="faq-item">
-            <h4>How long do I have access?</h4>
-            <p>You get lifetime access to all enrolled courses.</p>
-          </div>
-
-          <button style="margin-top:10px; background:none; border:none; color:#2563eb; font-weight:bold; cursor:pointer;">View All FAQs →</button>
-        </div>
-
-        <div class="community-card" style="background:linear-gradient(to bottom right,#f3e8ff,#ffe0f0); padding:30px; border-radius:20px; margin-top:30px;">
-          <h3>Join Our Community</h3>
-          <p style="color:gray; margin-bottom:20px;">Connect with learners and experts.</p>
-
-          <button class="discord-btn" style="background:#2563eb; color:white; padding:10px 20px; border:none; border-radius:8px;">Discord</button>
-          <button class="forum-btn" style="background:#333; color:white; padding:10px 20px; border:none; border-radius:8px;">Forum</button>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="container footer-grid">
-      
-      <div>
-        <h3>EduLearn</h3>
-        <p>Your trusted platform for learning modern skills.</p>
-      </div>
-
-      <div>
-        <h3>Quick Links</h3>
-        <a href="index.html">Home</a>
-        <a href="courses.html">Courses</a>
-        <a href="about.html">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-
-      <div>
-        <h3>Support</h3>
-        <a href="#">Help Center</a>
-        <a href="#">FAQs</a>
-        <a href="#">Terms & Conditions</a>
-        <a href="#">Privacy Policy</a>
-      </div>
-
+        <button class="submit-btn">Send Message</button>
+      </form>
     </div>
 
-    <div class="footer-bottom">
-      © 2025 EduLearn. All rights reserved.
+    <!-- RIGHT -->
+    <div>
+      <div style="background:linear-gradient(to bottom right,#2563eb,#7c3aed); color:white; padding:30px; border-radius:20px;">
+        <h3>Need Quick Help?</h3>
+        <p>Our support team is here 24/7.</p>
+        <button style="padding:10px 20px; border:none; border-radius:8px; background:white; color:#2563eb; font-weight:bold;">Live Chat</button>
+      </div>
     </div>
-  </footer>
+
+  </div>
+</section>
+
+<!-- FOOTER (Unified) -->
+<footer>
+  <div class="footer-grid">
+    
+
+  <div class="footer-bottom">
+    © 2025 EduLearn. All rights reserved.
+  </div>
+</footer>
 
 </body>
 </html>
+
